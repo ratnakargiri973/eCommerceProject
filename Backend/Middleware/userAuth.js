@@ -8,6 +8,7 @@ const authmiddleware = asyncHandler(async (req, res, next) => {
     // Check if authorization header is present and starts with 'Bearer'
     if (req.headers?.authorization?.startsWith('Bearer')) {
         token = req.headers.authorization.split(" ")[1];
+        console.log(token);
         try {
             if (token) {
                 // Verify the token
