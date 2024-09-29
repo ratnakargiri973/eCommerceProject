@@ -10,7 +10,7 @@
 5.**logout-** (https://ecommerceproject-jy0i.onrender.com/ecommerce/v1/user/logout)<br />
 6.**userUpdate-** (https://ecommerceproject-jy0i.onrender.com/ecommerce/v1/user/updateauser/66f7d2d7748959400012847b)<br />
 7.**deleteUser-** (https://ecommerceproject-jy0i.onrender.com/ecommerce/v1/user/delete/66f7d4ec7489594000128484)<br />
-8.forgotPassword-** (https://ecommerceproject-jy0i.onrender.com/ecommerce/v1/user/forgotpasswordtoken/66f7d2d7748959400012847b)<br />
+8.**forgotPassword-** (https://ecommerceproject-jy0i.onrender.com/ecommerce/v1/user/forgotpasswordtoken/66f7d2d7748959400012847b)<br />
 9.**resetPassword-** (https://ecommerceproject-jy0i.onrender.com/ecommerce/v1/user/resetpassword/66f8434f766178af4cc34ed6)<br />
 
 #### User's Wishlist
