@@ -1,6 +1,6 @@
 ## THE API TEMPLATE
 
-[Hosted Link](https://ecommerceproject-jy0i.onrender.com) #### https://ecommerceproject-jy0i.onrender.com
+[Hosted Link](https://ecommerceproject-jy0i.onrender.com) #### (https://ecommerceproject-jy0i.onrender.com)
 
 ### User APIs
 1.**getAllUsers-** (https://ecommerceproject-jy0i.onrender.com/ecommerce/v1/user/getallusers)<br />
