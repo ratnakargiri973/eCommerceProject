@@ -5,6 +5,6 @@ const {createBrand,updateBrand,findBrandbyid,getallBrand,deletebyid}=require('..
 BrandRoute.post('/create',isadmin,createBrand)
 BrandRoute.put('/update/:id',isadmin,updateBrand)
 BrandRoute.get('/get/:id',isadmin,findBrandbyid)
-BrandRoute.get('/getallbrands',getallBrand)
+BrandRoute.get('/getallbrands',isadmin,getallBrand)
 BrandRoute.delete('/delete/:id',isadmin,deletebyid)
 module.exports=BrandRoute
