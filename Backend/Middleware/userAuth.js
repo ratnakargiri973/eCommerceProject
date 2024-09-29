@@ -3,37 +3,40 @@ const asyncHandler = require("express-async-handler");
 const jwt = require("jsonwebtoken");
 
 const authmiddleware = asyncHandler(async (req, res, next) => {
-    let token;
-
-    // Check if authorization header is present and starts with 'Bearer'
-    if (req.headers?.authorization?.startsWith('Bearer')) {
-        token = req.headers.authorization.split(" ")[1];
-        try {
-            if (token) {
-                // Verify the token
-                const decoded = jwt.verify(token, process.env.SECRET);
-                
-                // Find the user based on the decoded user ID
-                const user = await Usermodel.findById(decoded?.userID);
-                
-                // If user is found, attach it to the request object
-                if (user) {
-                    req.user = user;
-                    next(); // Proceed to the next middleware or route
-                } else {
-                    res.status(401);
-                    throw new Error("User not found, please login again");
-                }
-            }
-        } catch (error) {
-            // Handle JWT verification errors (e.g., token expired, invalid token)
-            res.status(401); // Unauthorized
-            throw new Error("Not authorized, token expired or invalid. Please login again.");
-        }
-    } else {
-        // If no token is provided in the authorization header
-        res.status(401); // Unauthorized
-        throw new Error("No token provided, authorization denied.");
+   try {
+      const bearertoken = req.headers.authorization;
+  
+      
+      //is token present
+      if (!bearertoken) {
+        throw new Error("there is no token")
+      }
+  
+  
+      //token matching wheather it is same one or different
+      const token = bearertoken.split(" ")[1];
+      jwt.verify(token,"Ecommerce");
+  
+  
+  
+      //token data with expiry of token
+      const tokendata = jwt.decode(token);
+      // console.log(tokendata);
+      const currenttimeinseconds = Math.floor(new Date().getTime() / 1000);
+      if (currenttimeinseconds > tokendata.exp) {
+       throw new Error("token is expired")
+      }
+  
+      //not a user
+      // const isvalidUser = await Usermodel.findById(tokendata.userId);
+      // // console.log(isvalidUser)
+      // if (!isvalidUser) {
+      //  throw new Error("there is no user with this address")
+      // }
+      next()
+    }        
+    catch (err) {
+     throw new Error("Invalid token unauthorised by err",err)
     }
 });
 
